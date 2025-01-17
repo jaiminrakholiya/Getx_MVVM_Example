@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_mvvm_example/utils/utils.dart';
+import 'package:getx_mvvm_example/view_models/services/splash_services.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -10,17 +10,21 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+
+  SplashServices splashScreen = SplashServices();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    splashScreen.isLogin();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('email_hint'.tr),
-      ),
-      floatingActionButton: FloatingActionButton(
-          onPressed:(){
-            Utils.toastMessageCenter('Hello MVVM');
-            Utils.toastMessage('Hello MVVM');
-          }),
+      backgroundColor: Colors.teal,
+      body: Center(child: Text('welcome_back'.tr,textAlign:TextAlign.center,)),
     );
   }
 }
